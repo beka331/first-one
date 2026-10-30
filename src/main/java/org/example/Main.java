@@ -5,9 +5,136 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //პირველი შეფასებითი საშინაო დავალება
+
+        /*N1 პირველი ამოცანა 2 ქულა - წარმოიდგინეთ, რომ ონლაინ მაღაზიაში ყიდულობთ
+        პროდუქტს და დაწერეთ შემდეგი კოდი:
+        ● თუ პროდუქტის ფასი 100 ლარის ტოლი ან მეტია, მომხმარებელს გაუკეთებს 10% -იან ფასდაკლებას
+        ● სხვა შემთხვევაში პროდუქტის ფასი უცვლელი დარჩება
+        ● დაბეჭდავს საბოლოო ფასს.*/
+
+        double price = 180;
+
+        if (price >= 100) {
+            System.out.println("თქვენ სარგებლობთ 10%-იანი ფასდაკლებით, გადასახდელია " + price * 0.9 + "₾");
+        } else if (price < 100 && price > 0) {
+            System.out.println("თქვენ არ სარგებლობთ ფასდაკლებით, გადასახდელია " + price + "₾");
+        } else {
+            System.out.println("არასწორი მნიშვნელობა");
+        };
+
+
+        /*N2 მეორე ამოცანა 2 ქულა - დაწერეთ კოდი, რომელიც შეამოწმებს მომხმარებლის
+        ავტორიზაციის მონაცემებს. წინასწარ განსაზღვრეთ სწორი მომხმარებლის სახელი
+        (username) და პაროლი (password). თუ მომხმარებელი ორივე მონაცემს სწორად
+        შეიყვანს, დაბეჭდეთ Login successful, თუ რომელიმე მაინც შეეშლება, დაბეჭდეთ Invalid
+        username or password.*/
+
+        String correctUsername = "beka331";
+        String correctPassword = "randomPass1@";
+
+        String username = "beka331";
+        String password = "randomPass1@";
+
+        if (username.equals(correctUsername) && password.equals(correctPassword)) {
+            System.out.println("Login successful");
+        } else {
+            System.out.println("Invalid username or password");
+        }
+
+
+        /* N3 მესამე ამოცანა 2 ქულა - ტესტერმა შეამოწმა კონკრეტული ფუნქციონალი ხუთი
+        ტესტ ქეისით. მასივში მოცემულია თითოეული ტესტის შედეგი:
+        int[] testResults = {1, 0, 1, 1, 0};
+        სადაც 1 არის Passed, ხოლო 0 არის Failed. დაწერეთ კოდი, რომელიც for ციკლის
+        გამოყენებით დაითვლის წარმატებით და წარუმატებლად დასრულებული ტესტების
+        რაოდენობას და დაბეჭდავს ორივე შედეგს.  */
+
+
+        int[] testResults = {1, 0, 1, 1, 0};
+
+        int passed = 0;
+        int failed = 0;
+
+        for (int i = 0; i < testResults.length; i++) {
+            if (testResults[i] == 1) {
+                passed++;
+            } else if (testResults[i] == 0) {
+                failed++;
+            }
+        }
+        System.out.println("წარმატებულია " + passed + " ტესტ-ქეისი");
+        System.out.println("წარუმატებელია " + failed + " ტესტ-ქეისი");
+
+
+        /*N4 მეოთხე ამოცანა 2 ქულა - მომხმარებელმა გამოიწერა პროდუქცია და სტატუსების
+        მიხედვით უნდა მიიღოს შეტყობინება. დაწერეთ კოდი, რომელიც switch -ის გამოყენებით
+        დაამუშავებს შემდეგ მნიშვნელობებს:
+        ● როდესაც შეკვეთა არის ახალი და მისი სტატუსი არის NEW → მომხმარებელმა
+        უნდა მიიღოს შეტყობინება Order received
+        ● როდესაც შეკვეთას ვამზადებთ და მისი სტატუსი არის PROCESSING →
+        მომხმარებელმა უნდა მიიღოს შეტყობინება Order is being prepared
+        ● როდესაც გავუგზავნეთ შეკვეთა და სტატუსი არის SHIPPED → მომხმარებელმა
+        უნდა მიიღოს შეტყობინება Order is on the way
+        ● როდესაც ჩაიბარა პროდუქტი და სტატუსი არის DELIVERED → მომხმარებელმა
+        უნდა მიიღოს შეტყობინება Order delivered
+        ● თუ ზემოთ ჩამოთვლილი არცერთი სტატუსი არ არის მინიჭებული, მაშინ
+        დაიბეჭდოს Unknown status.*/
+
+        String status = "DELIVERED";
+        switch (status) {
+            case "NEW":
+                System.out.println("Order received");
+                break;
+            case "PROCESSING":
+                System.out.println("Order is being prepared");
+                break;
+            case "SHIPPED":
+                System.out.println("Order is on the way");
+                break;
+            case "DELIVERED":
+                System.out.println("Order delivered");
+                break;
+            default: {
+                System.out.println("Unknown status");
+            }
+        }
+
+
+        /*N5 მეხუთე ამოცანა 2 ქულა - შექმენით String ტიპის ცვლადი და დაწერეთ კოდი,
+        რომელიც:
+        ● for ციკლის გამოყენებით დაითვლის სტრინგში ხმოვანი ასოების რაოდენობას და
+        დაბეჭდავს
+        ● იპოვის სტრინგის სიგრძეს და დაბეჭდავს მას
+        ● შეამოწმებს სტრინგის სიგრძე ლუწია თუ კენტი. თუ სიგრძე ლუწი რიცხვია,
+        დაბეჭდოს "ლუწი", ხოლო თუ კენტია დაბეჭდავს "კენტი".
+         */
+
+        String text = "გადაფიჩინებული";
+        int vowelCount = 0;
+
+        for (int i = 0; i < text.length(); i++) {
+            char letter = text.charAt(i);
+
+            if (letter == 'ა' || letter == 'ე' || letter == 'ი'
+                    || letter == 'ო' || letter == 'უ') {
+                vowelCount++;
+            }
+        }
+
+        System.out.println("ხმოვნების რაოდენობა: " + vowelCount);
+        System.out.println("სტრინგის სიგრძე: " + text.length());
+
+        if (text.length() % 2 == 0) {
+            System.out.println("ლუწი");
+        } else {
+            System.out.println("კენტი");
+        }
+
+
         //პირველი საშინაო დავალება, პრიმიტიული ტიპები
 
-        byte a = 1;
+       /* byte a = 1;
         short b = 12;
         int c = 10000;
         long d = 10_000_000_000L;
@@ -173,10 +300,6 @@ public class Main {
             default:
                 System.out.println("ბაზაში ასეთი სინჯი არ მოიძებნა");
 
-        }
-
+        } */
     }
 }
-
-
-
